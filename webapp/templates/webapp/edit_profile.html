@@ -1,0 +1,65 @@
+{% extends 'webapp/basic.html' %}
+
+{% block title %} Edit Profile {% endblock %}
+
+{% block body %}
+
+<div class="container mt-3">
+{% for i in data %}
+    <form action="update" method="post">
+        {% csrf_token %}
+        <div class="fprm-row">
+            <div class="col-7">
+                <input type="text" class="form-control" name="name" placeholder="Enter Full name {{i.Name}} {{i.Name}}">
+                <input type="text" class="form-control" name="gender" placeholder="Enter Gender {{i.Gender}}">
+                <input type="date" class="form-control" name="dob" placeholder="Enter Date of Birth {{i.DOB}}">
+                <input type="email" class="form-control" name="email" placeholder="Enter Email id {{i.Email}}">
+                <input type="text" class="form-control" name="contact1" placeholder="Enter Contact 1 {{i.Contact1}}">
+                <input type="text" class="form-control" name="contact2" placeholder="Enter Contact2 {{i.Contact2}}">
+                <input type="text" class="form-control" name="address" placeholder="Enter Full Address {{i.Address}}">
+
+                <input type="text" class="form-control" name="ssc_col" placeholder="Enter SSC School Name {{i.SSC_col}}">
+                <input type="text" class="form-control" name="ssc_uni" placeholder="Enter Board/University {{i.SSC_uni}}">
+                <input type="text" class="form-control" name="ssc_pass" placeholder="Enter Year of Passing {{i.SSC_pass}}">
+                <input type="text" class="form-control" name="ssc_per" placeholder="Enter Percentage/Grade {{i.SSC_per}}">
+                
+                <input type="text" class="form-control" name="hsc_col" placeholder="Enter HSC School Name {{i.HSC_col}}">
+                <input type="text" class="form-control" name="hsc_uni" placeholder="Enter Board/University {{i.HSC_uni}}">
+                <input type="text" class="form-control" name="hsc_pass" placeholder="Enter Year of Passing {{i.HSC_pass}}">
+                <input type="text" class="form-control" name="hsc_per" placeholder="Enter Percentage/Grade {{i.HSC_per}}">
+
+                <input type="text" class="form-control" name="dip_col" placeholder="Enter Diploma College Name {{i.Dip_col}}">
+                <input type="text" class="form-control" name="dip_spl" placeholder="Enter Branch/Stream {{i.Dip_spl}}">
+                <input type="text" class="form-control" name="dip_uni" placeholder="Enter Board/University {{i.Dip_uni}}">
+                <input type="text" class="form-control" name="dip_pass" placeholder="Enter Year of Passing {{i.Dip_pass}}">
+                <input type="text" class="form-control" name="dip_per" placeholder="Enter Percentage/Grade {{i.Dip_per}}">
+
+                <input type="text" class="form-control" name="grad_col" placeholder="Enter Degree College Name {{i.Grad_col}}">
+                <input type="text" class="form-control" name="grad_spl" placeholder="Enter Branch/Stream {{i.Grad_spl}}">
+                <input type="text" class="form-control" name="grad_uni" placeholder="Enter Board/University {{i.Grad_uni}}">
+                <input type="text" class="form-control" name="grad_pass" placeholder="Enter Year of Passing {{i.Grad_pass}}">
+                <input type="text" class="form-control" name="grad_per" placeholder="Enter Percentage/Grade {{i.Grad_per}}">
+
+                <input type="text" class="form-control" name="gp_title" placeholder="Title of Graduation Project {{i.Grad_project_title}}">
+                <input type="text" class="form-control" name="gp_detail" placeholder="Details of Project {{i.Grad_project_detail}}">
+
+                <input type="text" class="form-control" name="linkedin" placeholder="Linkedin Profile {{i.Linkedin}}">
+
+                <input type="text" class="form-control" name="tech_skills" placeholder="Enter Technical Skills {{i.Tech_skills}}">
+                <input type="text" class="form-control" name="soft_skills" placeholder="Enter Soft Skills {{i.Soft_skills}}">
+
+                <input type="text" class="form-control" name="cert1" placeholder="Enter Certification1 {{i.Certification1}}">
+                <input type="text" class="form-control" name="cert2" placeholder="Enter Certification2 {{i.Certification2}}">
+                <input type="text" class="form-control" name="cert3" placeholder="Enter Certification3 {{i.Certification3}}">
+
+                <input type="text" class="form-control" name="exp1_title" placeholder="Enter Experience/Internship1 {{i.Experience1_title}}">
+                <input type="text" class="form-control" name="exp2_title" placeholder="Enter Experience/Internship2 {{i.Experience2_title}}">
+                
+                <br>
+                <input type="submit" value="Update" class="btn btn-primary">
+            </div>
+        </div>
+    </form>
+{% endfor %}
+</div>
+{% endblock %}

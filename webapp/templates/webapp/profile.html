@@ -1,0 +1,58 @@
+{% extends 'webapp/basic.html' %}
+
+{% block title %} My Profile {% endblock %}
+
+{% block body %}
+<div class="container-sm mt-3">
+	{% for i in data %}
+	<div class="container-sm">
+		<form action="edit_profile" method="get">
+			<input type="hidden" name="user" value="{{i.candidate_id}}">
+			<button type="submit" class="btn btn-secondary" >Edit Profile</button>
+		</form><br>
+	</div>
+	<div class="container-sm">
+		<div class="row">
+			<div class="col-9"><b>Name: </b>{{i.Name}}</div>
+			<div class="col-6">Gender: {{i.Gender}}</div>
+			<div class="col-6">Date of Birth: {{i.DOB}} </div>
+			<div class="col-6">Contact1: {{i.Contact1}}</div>
+			<div class="col-6">Contact2: {{i.Contact2}}</div>
+			<div class="col-6">Email: {{i.Email}}</div>
+			<div class="col-6">Linkedin:{{i.Linkedin}} </div>
+			<div class="col-8">Address: {{i.Address}}</div>
+			<div class="col-3">SSC: {{i.SSC_col}}</div>
+			<div class="col-3">SSC Board: {{i.SSC_uni}}</div>
+			<div class="col-3">SSC Passing: {{i.SSC_pass}}</div>
+			<div class="col-3">SSC Percentsge: {{i.SSC_per}}</div>
+			<div class="col-3">HSC: {{i.HSC_col}}</div>
+			<div class="col-3">HSC Board: {{i.HSC_uni}}</div>
+			<div class="col-3">HSC Passing: {{i.HSC_pass}}</div>
+			<div class="col-3">HSC Percentsge: {{i.HSC_per}}</div>
+			<div class="col-3">Dip: {{i.Dip_col}}</div>
+			<div class="col-2">Dip in: {{i.Dip_spl}}</div>
+			<div class="col-3">Dip Board: {{i.Dip_uni}}</div>
+			<div class="col-2">Dip Passing: {{i.Dip_pass}}</div>
+			<div class="col-2">Dip Percentsge: {{i.Dip_per}}</div>
+			<div class="col-3">Grad: {{i.Grad_col}}</div>
+			<div class="col-2">Grad in: {{i.Grad_spl}}</div>
+			<div class="col-3">Grad Board: {{i.Grad_uni}}</div>
+			<div class="col-2">Grad Passing: {{i.Grad_pass}}</div>
+			<div class="col-2">Grad Percentsge: {{i.Grad_per}}</div>
+			<div class="col-4">Grad Project:{{i.Grad_project_title}} </div>
+			<div class="col-8">Project Details:{{i.Grad_project_detail}} </div>
+			<div class="col-8">Tech skills:{{i.Tech_skills}} </div>
+			<div class="col-8">Soft skills:{{i.Soft_skills}} </div>
+			<div class="col-8">Certification1:{{i.Certification1}} </div>
+			<div class="col-8">Certification2:{{i.Certification2}} </div>
+			<div class="col-8">Certification3:{{i.Certification3}} </div>
+			<div class="col-8">Experience/Internship 1:{{i.Experience1_title}} </div>
+			<div class="col-8">Experience/Internship 2:{{i.Experience2_title}} </div>
+
+		</div>
+
+	</div>
+	{% endfor %}
+</div>
+
+{% endblock %}

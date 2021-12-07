@@ -1,0 +1,83 @@
+{% extends 'webapp/basic.html' %}
+{% block title %} Test {% endblock %}
+{% block css %} 
+
+.anyClass {
+  height:385px;
+  overflow-y: scroll;
+}
+
+
+{% endblock %}
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-4"><button class="btn btn-secondary mt-5">Time left: <span id="timer"></span> </button></div>
+        <div class="col-4"><br></div>
+        <div class="col-12">
+            <div class="container my-4">
+                <div class="row">
+                    <div class="col-9">
+                        <h3>Skill Test</h3>
+                    </div>
+                    <div class="col-12">
+                        <div data-bs-spy="scroll" data-bs-offset="0" class="anyClass" tabindex="0">
+                            <form action="python" method="post" id="quiz">
+                                {% csrf_token %}
+                                {% for i in questions %}
+                                <div class="card">
+                                    <div class="card-header">
+                                        Q. {{ i.question }}
+                                    </div>
+                                    <div class="card-body">
+                                        <input type="radio" name="{{ i.answer }}" value="{{ i.option1 }}"> {{ i.option1 }}<br>
+                                        <input type="radio" name="{{ i.answer }}" value="{{ i.option2 }}"> {{ i.option2 }}<br>
+                                        <input type="radio" name="{{ i.answer }}" value="{{ i.option3 }}"> {{ i.option3 }}<br>
+                                        <input type="radio" name="{{ i.answer }}" value="{{ i.option4 }}"> {{ i.option4 }}<br>
+                                    </div>
+                                </div><br>
+                                {% endfor %}
+                                <div class="row">
+                                    <div class="col-10"></div>
+                                    <div class="col-2">
+                                        <button class="btn btn-secondary my-2">Submit Test</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+<script>
+window.onload = function begin() {
+    document.getElementById('timer').innerHTML =
+        20 + ":" + 00;
+    startTimer();
+}
+
+function startTimer() {
+    var presentTime = document.getElementById('timer').innerHTML;
+    var timeArray = presentTime.split(/[:]+/);
+    var m = timeArray[0];
+    var s = checkSecond((timeArray[1] - 1));
+    if (s == 59) { m = m - 1 }
+    if (m < 0) {
+        document.getElementById('quiz').submit();
+    }
+    document.getElementById('timer').innerHTML =
+        m + ":" + s;
+    setTimeout(startTimer, 1000);
+}
+
+function checkSecond(sec) {
+    if (sec < 10 && sec >= 0) { sec = "0" + sec }; // add zero in front of numbers < 10
+    if (sec < 0) { sec = "59" };
+    return sec;
+}
+</script>
+{% endblock %}

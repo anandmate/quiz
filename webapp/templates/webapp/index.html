@@ -1,0 +1,26 @@
+{% extends 'webapp/basic.html' %}
+{% block title %} TestApp {% endblock %}
+{% block body %}
+<div class="container mt-3">
+    {% if messages %}
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+    {% endif %}
+</div>
+<h3>Welcome!</h3><br><br>
+
+<div class="container-sm">
+    <h3>**Technology**</h3>
+    {% for i in tech %}
+    <h4>{{i.name}}</h4>
+    <img src=" {{i.logo.url}}">
+    {% endfor %}
+</div><br><br>
+<div class="container-sm">
+    <h3>**Company**</h3>
+    {% for i in company %}
+    <h4>{{i.name}}</h4>
+    {% endfor %}
+</div>
+{% endblock %}

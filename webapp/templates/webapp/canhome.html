@@ -1,0 +1,32 @@
+{% extends 'webapp/basic.html' %}
+{% block title %} Home {% endblock %}
+{% block body %}
+<div class="container">
+    {% for i in data %}
+    <div class="container-sm">
+        <h3>Welcome! {{i.Name}}</h3>
+    </div>
+    {% endfor %}
+</div><br><br>
+<div class="container-sm">
+    {% for j in result %}
+    <h3>Technology : {{j.tech}}</h3>
+    <h4>Score : {{j.score}}/10</h4>
+    <h4>Questions attempted : {{j.attempt}}</h4>
+    <h4>Accuracy : {{j.accuracy}}</h4>
+    <h4>Total attempts : {{freq}}</h4>
+    {% endfor %}
+</div><br><br>
+<div class="container-sm">
+    <h3>**Technology**</h3>
+    {% for i in tech %}
+    <h4>{{i.name}}</h4>
+    {% endfor %}
+</div><br><br>
+<div class="container-sm">
+    <h3>**Company**</h3>
+    {% for i in company %}
+    <h4>{{i.name}}</h4>
+    {% endfor %}
+</div>
+{% endblock %}
