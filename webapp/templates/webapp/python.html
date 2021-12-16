@@ -27,7 +27,7 @@
                                 {% for i in questions %}
                                 <div class="card">
                                     <div class="card-header">
-                                        Q. {{ i.question }}
+                                        Q. {{ forloop.counter }} {{ i.question }}
                                     </div>
                                     <div class="card-body">
                                         <input type="radio" name="{{ i.answer }}" value="{{ i.option1 }}"> {{ i.option1 }}<br>
