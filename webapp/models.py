@@ -276,6 +276,10 @@ class Category(models.Model):
         ('aptitude', 'aptitude'),
         ('other', 'other')
     ]
+    view = models.CharField(max_length=30, null=True)
     name = models.CharField(max_length=50)
     logo = models.ImageField(upload_to='webapp/logo')
     subtype = models.CharField(max_length=50, choices=subtype_choices)
+
+    def __str__(self):
+        return self.name
